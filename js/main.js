@@ -1,168 +1,286 @@
-(function($) {
-	"use strict"
+(function ($) {
+  "use strict";
 
-	// Mobile Nav toggle
-	$('.menu-toggle > a').on('click', function (e) {
-		e.preventDefault();
-		$('#responsive-nav').toggleClass('active');
-	})
-
-	// Fix cart dropdown from closing
-	$('.cart-dropdown').on('click', function (e) {
-		e.stopPropagation();
-	});
-
-	/////////////////////////////////////////
-
-	// Products Slick
-	$('.products-slick').each(function() {
-		var $this = $(this),
-				$nav = $this.attr('data-nav');
-
-		$this.slick({
-			slidesToShow: 4,
-			slidesToScroll: 1,
-			autoplay: true,
-			infinite: true,
-			speed: 300,
-			dots: false,
-			arrows: true,
-			appendArrows: $nav ? $nav : false,
-			responsive: [{
-	        breakpoint: 991,
-	        settings: {
-	          slidesToShow: 2,
-	          slidesToScroll: 1,
-	        }
-	      },
-	      {
-	        breakpoint: 480,
-	        settings: {
-	          slidesToShow: 1,
-	          slidesToScroll: 1,
-	        }
-	      },
-	    ]
-		});
-	});
-
-	// Products Widget Slick
-	$('.products-widget-slick').each(function() {
-		var $this = $(this),
-				$nav = $this.attr('data-nav');
-
-		$this.slick({
-			infinite: true,
-			autoplay: true,
-			speed: 300,
-			dots: false,
-			arrows: true,
-			appendArrows: $nav ? $nav : false,
-		});
-	});
-
-	/////////////////////////////////////////
-
-	// Product Main img Slick
-	$('#product-main-img').slick({
-    infinite: true,
-    speed: 300,
-    dots: false,
-    arrows: true,
-    fade: true,
-    asNavFor: '#product-imgs',
+  // Mobile Nav toggle
+  $(".menu-toggle > a").on("click", function (e) {
+    e.preventDefault();
+    $("#responsive-nav").toggleClass("active");
   });
 
-	// Product imgs Slick
-  $('#product-imgs').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    centerMode: true,
-    focusOnSelect: true,
-		centerPadding: 0,
-		vertical: true,
-    asNavFor: '#product-main-img',
-		responsive: [{
-        breakpoint: 991,
-        settings: {
-					vertical: false,
-					arrows: false,
-					dots: true,
+  // Fix cart dropdown from closing
+  $(".cart-dropdown").on("click", function (e) {
+    e.stopPropagation();
+  });
+
+  /////////////////////////////////////////
+
+  // Product Detail Modal
+  $("#product-modal").on("show.bs.modal", function (e) {
+    var title = $(e.relatedTarget).data("title");
+    var image = $(e.relatedTarget).data("image");
+    var content = $(e.relatedTarget).data("content");
+    $(e.currentTarget).find("#modal-product-img").attr("src", image);
+    $(e.currentTarget).find(".modal-title").text(title);
+
+    $("#product-modal .modal-product-content").empty();
+    for (var i = 0; i < content.length; i++) {
+      $("#product-modal .modal-product-content").append(
+        "<li>" + content[i] + "</li>"
+      );
+    }
+  });
+
+  /////////////////////////////////////////
+
+  // Product Checkout
+  $(".product-main").on("click", function (e) {
+    var title = $(e.currentTarget).data("title");
+    var price = $(e.currentTarget).data("price");
+    $("#bathub-card").find(".product-main").removeClass("active");
+    $(e.currentTarget).addClass("active");
+
+    // Summary Section
+    $("#summary-main").find(".summary-product").empty();
+    $("#summary-main").find(".summary-price").empty();
+    $("#summary-main").find(".summary-caption").empty();
+    $("#summary-main-footer.text-right").empty();
+    $("#summary-main").find(".summary-product").append(title);
+    $("#summary-main")
+      .find(".summary-price")
+      .append("$" + price);
+    $("#summary-main").find(".summary-caption").append("1 week");
+
+    var totalPrice =
+      parseInt($(".summary-footer.text-right").text().substr(1, 10)) || 0;
+    $(".summary-footer.text-right")
+      .text("")
+      .append("$" + (totalPrice === 0 ? totalPrice + price : totalPrice));
+  });
+
+  /////////////////////////////////////////
+  // Add Ons
+
+  // Remove Add Ons
+  (function ($) {
+    $.fn.removeAddOns = function (id, totalPrice, price) {
+      var element = $(`#${id}`);
+      element.remove();
+
+      $(".summary-footer.text-right")
+        .text("")
+        .append("$" + (totalPrice - price));
+    };
+  })(jQuery);
+
+  // On Click Add Ons Checkbox
+  $('input[id^="addons"]').each(function () {
+    $(this).click(function () {
+      var data = $(this).data("input");
+
+      var id = data.id;
+      var totalPrice =
+        parseInt($(".summary-footer.text-right").text().substr(1, 10)) || 0;
+
+      if ($(this).is(":checked")) {
+        $(".summary-footer.text-right")
+          .text("")
+          .append("$" + (totalPrice + data.price));
+
+        // Append Element On Add Ons - Summary Card
+        var element =
+          "<div id=" +
+          data.title +
+          '><div class="row"><div class="col-md-8"><h4 class="summary-product">' +
+          data.title +
+          '</h4></div><div class="col-md-4"><h4 class="summary-price">$' +
+          data.price +
+          '<a href="#remove-addons-modal" data-toggle="modal" data-id=' +
+          id +
+          " data-price=" +
+          data.price +
+          '><img class="icon" src="./img/trash.png" alt=""/></a> </h4></div></div><p class="summary-caption">' +
+          data.caption +
+          "</p></div>";
+        $("#add-ons").append(element);
+
+        $(".summary-footer.text-right")
+          .text("")
+          .append("$" + (totalPrice + data.price));
+      } else {
+        // Remove Add Ons
+        $(this).removeAddOns(id, totalPrice, data.price);
+        $("#myCheckbox").prop("checked", false); // Unchecks it
+      }
+    });
+  });
+
+  // Add Ons Modal
+  $("#remove-addons-modal").on("show.bs.modal", function (e) {
+    var data = $(e.relatedTarget).data();
+    var id = data.id;
+    var price = data.price;
+    var totalPrice =
+      parseInt($(".summary-footer.text-right").text().substr(1, 10)) || 0;
+
+    // Cancel Button
+    $(".modal-cancel-button").on("click", function (e) {
+      $(this).removeAddOns(id, totalPrice, price);
+
+      // Uncheck Checkbox
+      $('input[id^="addons"]').each(function () {
+        var element = new jQuery(this);
+        if (element.data("input").id.toLowerCase() === id.toLowerCase()) {
+          $(this).prop("checked", false);
         }
-      },
-    ]
+      });
+
+      $("#remove-addons-modal").modal("toggle");
+    });
+
+    // Delete Button
+    $(".modal-delete-button").on("click", function (e) {
+      $("#remove-addons-modal").modal("toggle");
+    });
   });
 
-	// Product img zoom
-	var zoomMainProduct = document.getElementById('product-main-img');
-	if (zoomMainProduct) {
-		$('#product-main-img .product-preview').zoom();
-	}
+  /////////////////////////////////////////
 
-	/////////////////////////////////////////
+  // Back & Continue Button
+  var step = 0;
+  $("#continue-btn").on("click", function () {
+    step = step + 1;
+    switch (step) {
+      case 1:
+        $("#bathub-card").css("display", "none");
+        $("#rental-durations").css("display", "block");
+        $("#rental-duration-nav").addClass("active");
+        $("#back-btn").css("display", "block");
+        $("#continue-btn").css("width", "60%");
+        break;
+      case 2:
+        $("#rental-durations").css("display", "none");
+        $("#delivery-address").css("display", "block");
+        $("#delivery-address-nav").addClass("active");
+        break;
+      case 3:
+        $("#delivery-address").css("display", "none");
+        $("#payment").css("display", "block");
+        $("#payment-nav").addClass("active");
+        break;
+      case 4:
+        window.location.href = "./success.html";
+        break;
+    }
+  });
 
-	// Input number
-	$('.input-number').each(function() {
-		var $this = $(this),
-		$input = $this.find('input[type="number"]'),
-		up = $this.find('.qty-up'),
-		down = $this.find('.qty-down');
+  $("#back-btn").on("click", function () {
+    step = step - 1;
 
-		down.on('click', function () {
-			var value = parseInt($input.val()) - 1;
-			value = value < 1 ? 1 : value;
-			$input.val(value);
-			$input.change();
-			updatePriceSlider($this , value)
-		})
+    switch (step) {
+      case 0:
+        $("#bathub-card").css("display", "block");
+        $("#rental-durations").css("display", "none");
+        $("#rental-duration-nav").removeClass("active");
+        $("#back-btn").css("display", "none");
+        $("#continue-btn").css("width", "100%");
+        break;
+      case 1:
+        $("#rental-durations").css("display", "block");
+        $("#delivery-address").css("display", "none");
+        $("#delivery-address-nav").removeClass("active");
+        break;
+      case 2:
+        $("#delivery-address").css("display", "block");
+        $("#payment").css("display", "none");
+        $("#payment-nav").removeClass("active");
+        break;
+    }
+  });
 
-		up.on('click', function () {
-			var value = parseInt($input.val()) + 1;
-			$input.val(value);
-			$input.change();
-			updatePriceSlider($this , value)
-		})
-	});
+  /////////////////////////////////////////
 
-	var priceInputMax = document.getElementById('price-max'),
-			priceInputMin = document.getElementById('price-min');
+  // Rental Durations
+  var now = new Date();
 
-	priceInputMax.addEventListener('change', function(){
-		updatePriceSlider($(this).parent() , this.value)
-	});
+  var day = ("0" + now.getDate()).slice(-2);
+  var month = ("0" + (now.getMonth() + 1)).slice(-2);
+  var today = now.getFullYear() + "-" + month + "-" + day;
+  $("#startDate").val(today);
 
-	priceInputMin.addEventListener('change', function(){
-		updatePriceSlider($(this).parent() , this.value)
-	});
+  now = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+  day = ("0" + now.getDate()).slice(-2);
+  month = ("0" + (now.getMonth() + 1)).slice(-2);
+  today = now.getFullYear() + "-" + month + "-" + day;
+  $("#endDate").val(today);
 
-	function updatePriceSlider(elem , value) {
-		if ( elem.hasClass('price-min') ) {
-			console.log('min')
-			priceSlider.noUiSlider.set([value, null]);
-		} else if ( elem.hasClass('price-max')) {
-			console.log('max')
-			priceSlider.noUiSlider.set([null, value]);
-		}
-	}
+  // Rental Card
+  $("#rental1, #rental2, #rental3").each(function () {
+    $(this).on("click", function () {
+      var id = $(this).attr("id");
+      $(".rental-list").find(".active").removeClass("active");
+      $(this).addClass("active");
+      now = new Date();
 
-	// Price Slider
-	var priceSlider = document.getElementById('price-slider');
-	if (priceSlider) {
-		noUiSlider.create(priceSlider, {
-			start: [1, 999],
-			connect: true,
-			step: 1,
-			range: {
-				'min': 1,
-				'max': 999
-			}
-		});
+      switch (id) {
+        case "rental1":
+          now = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+          day = ("0" + now.getDate()).slice(-2);
+          month = ("0" + (now.getMonth() + 1)).slice(-2);
+          today = now.getFullYear() + "-" + month + "-" + day;
+          $("#endDate").val(today);
+          break;
+        case "rental2":
+          now = new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000);
+          day = ("0" + now.getDate()).slice(-2);
+          month = ("0" + (now.getMonth() + 1)).slice(-2);
+          today = now.getFullYear() + "-" + month + "-" + day;
+          $("#endDate").val(today);
+          break;
+        case "rental3":
+          now = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
+          day = ("0" + now.getDate()).slice(-2);
+          month = ("0" + (now.getMonth() + 1)).slice(-2);
+          today = now.getFullYear() + "-" + month + "-" + day;
+          $("#endDate").val(today);
+          break;
+      }
+    });
+  });
 
-		priceSlider.noUiSlider.on('update', function( values, handle ) {
-			var value = values[handle];
-			handle ? priceInputMax.value = value : priceInputMin.value = value
-		});
-	}
+  /////////////////////////////////////////
 
+  // Products Slick
+  $(".products-slick").each(function () {
+    var $this = $(this),
+      $nav = $this.attr("data-nav");
+
+    $this.slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      infinite: true,
+      speed: 300,
+      dots: false,
+      arrows: false,
+      appendArrows: $nav ? $nav : false,
+      responsive: [
+        {
+          breakpoint: 991,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    });
+  });
+
+  /////////////////////////////////////////
 })(jQuery);

@@ -1,6 +1,7 @@
-Thanks for downloading this theme!
-
-## Other Useful Links
+## Pages
+* Checkout - index.html
+* Success Page - success.html
+* Failed Page - failed.html
 
 **ThemeWagon** is a great source for downloading free HTML templates built with the latest technology.
 
