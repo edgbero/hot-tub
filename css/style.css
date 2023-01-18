@@ -57,6 +57,7 @@ a {
   font-weight: 500;
   -webkit-transition: 0.2s color;
   transition: 0.2s color;
+  text-decoration: none !important;
 }
 
 ul,
@@ -100,7 +101,9 @@ ol {
 /*-- checkbox input --*/
 .input-checkbox {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  height: 24px;
 }
 
 .input-checkbox input[type="checkbox"]:not(:checked),
@@ -114,7 +117,6 @@ ol {
   font-weight: 600;
   min-height: 20px;
   cursor: pointer;
-  margin: auto;
   margin-left: 40px;
   font-family: "Inter", sans-serif;
   font-size: 14px;
@@ -122,7 +124,7 @@ ol {
 
 .input-checkbox input[type="checkbox"] + label span {
   position: absolute;
-  top: -2px;
+  top: 0px;
   left: 0px;
   width: 24px;
   height: 24px;
@@ -197,7 +199,10 @@ ol {
 
 #navigation {
   margin-top: 40px;
-  background: #fff;
+}
+
+#responsive-nav {
+  display: none;
 }
 
 /*----------------------------*\
@@ -225,16 +230,6 @@ ol {
   background-color: #1e5c89;
 }
 
-/*----------------------------*\
-	responsive nav
-\*----------------------------*/
-
-@media only screen and (max-width: 991px) {
-  #responsive-nav {
-    display: none;
-  }
-}
-
 /*=========================================================
 	04 -> CARD
 ===========================================================*/
@@ -244,7 +239,7 @@ ol {
   box-shadow: 0px 10px 40px rgba(15, 27, 60, 0.1);
   border-radius: 20px;
   margin: 15px 0px;
-  padding: 32px 32px 8px;
+  padding: 24px;
 }
 
 .card-title {
@@ -281,6 +276,7 @@ ol {
   box-shadow: none !important;
   -webkit-transition: none !important;
   transition: none !important;
+  padding: 10px;
 }
 
 .no-card:hover {
@@ -295,7 +291,7 @@ ol {
   color: #15d16c;
   font-family: "Inter", sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 100 !important;
 }
 
 .product:hover {
@@ -307,18 +303,18 @@ ol {
 
 .product .product-img {
   position: relative;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   border-radius: 20px;
+  text-align: center;
 }
 
 .product .product-img > img {
-  width: 100%;
   border-radius: 20px;
+  margin: auto;
 }
 
 .product .product-body {
   position: relative;
-  padding: 15px;
   background-color: #fff;
   text-align: center;
   z-index: 20;
@@ -348,7 +344,9 @@ ol {
   font-size: 12px;
   font-weight: 400;
   cursor: pointer;
+  display: block;
   margin: 0;
+  margin-bottom: 32px;
 }
 
 .product .product-body .product-btns > button {
@@ -443,10 +441,32 @@ ol {
   color: #808086;
 }
 
+.summary .summary-duration {
+  padding: 8px;
+  background-color: #f1f6f9;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+.summary .summary-duration .summary-duration-title {
+  font-size: 14px;
+  color: #808086;
+  margin-bottom: 8px;
+}
+
+.summary .summary-duration .summary-duration-date {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #808086;
+  margin: 0px;
+}
+
 .summary-footer {
   font-family: "Inter", sans-serif;
   font-size: 18px;
   font-weight: 400;
+  margin: 0;
 }
 
 .summary-handle {
@@ -546,8 +566,12 @@ ol {
   z-index: 2;
 }
 
+.products-slick .slick-list .slick-track {
+  margin: 0;
+}
+
 .products-slick .product.slick-slide {
-  width: 236px !important;
+  /* width: 174px !important; */
   margin: 0px;
 }
 
@@ -568,9 +592,10 @@ ol {
 }
 
 .products-slick-nav {
-  position: absolute;
-  right: 15px;
+  position: relative;
   z-index: 10;
+  text-align: center;
+  margin-bottom: 24px;
 }
 
 .products-slick-nav .slick-prev,
@@ -579,10 +604,10 @@ ol {
   -webkit-transform: none;
   -ms-transform: none;
   transform: none;
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
   display: inline-block !important;
-  margin: 0px 2px;
+  margin: 0px 4px;
 }
 
 .products-slick-nav .slick-prev:before,
@@ -594,65 +619,49 @@ ol {
 	06 -> RENTAL DURATION
 ===========================================================*/
 .rental {
-  margin-top: 40px;
+  margin-top: 16px;
 }
 
-.rental .rental-card {
+.rental .rental-border {
+  border: 1px solid #e0e0e0;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.rental .rental-radio-group {
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  padding: 24px;
-  background-color: #ffffff;
-  box-shadow: 0px;
-  border-radius: 20px;
-  margin: 15px 0px;
-  border: 1px solid #d2dee7;
 }
 
-.rental .rental-card.active {
-  border: 0px;
-  box-shadow: 0px 10px 40px rgba(15, 27, 60, 0.1);
-}
-
-.rental .rental-caption {
-  font-size: 12px;
-  font-weight: 600;
-  font-family: "Inter", sans-serif;
-  margin-bottom: 24px;
-  color: #808086;
-}
-.rental .rental-list {
-  margin-bottom: 48px;
-}
-
-.rental .rental-card .rental-radio-group {
-  display: inline-block;
-}
-
-.rental .rental-card .rental-radio-group .rental-radio-button {
+.rental .rental-radio-group .rental-radio-button {
   border-radius: 40px;
   width: 16px;
   height: 16px;
   display: inline-block;
   border: 1px solid #15d16c;
-  margin-right: 16px;
+  margin-right: 8px;
   background-clip: content-box;
   padding: 2px;
 }
 
-.rental .rental-card.active .rental-radio-group .rental-radio-button {
+.rental .active .rental-radio-group .rental-radio-button {
   background-color: #15d16c;
 }
 
-.rental .rental-card .rental-radio-group .rental-date {
+.rental .rental-radio-group .rental-date {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #4a4a52;
+  margin: 0;
 }
 
-.rental .rental-card .rental-radio-group .rental-price {
-  margin-top: 16px;
-  font-size: 32px;
+.rental .rental-price {
+  margin-top: 8px;
+  font-size: 18px;
   color: #15d16c;
+  text-align: left;
 }
 
 .rental .rental-label {
@@ -662,31 +671,6 @@ ol {
   font-weight: 400;
   color: #808086;
   margin-bottom: 8px;
-}
-
-.rental .rental-input-container {
-  position: relative;
-  float: left;
-}
-
-.rental .rental-input-container input {
-  padding: 5px 10px;
-  height: 30px;
-}
-
-.rental .rental-input-container .rental-button {
-  position: absolute;
-  top: 10px;
-  right: 11px;
-  width: 25px;
-  height: 25px;
-  background: #ffffff;
-  pointer-events: none;
-}
-
-.rental .rental-input-container .rental-button button {
-  border: none;
-  background: transparent;
 }
 
 .rental .rental-calendar-wrapper {
@@ -705,18 +689,21 @@ ol {
   border-radius: 10px;
   border: 0;
   width: 250px;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
   margin-right: 24px;
+  cursor: text;
 }
 
-.rental .rental-calendar input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
+.rental .rental-calendar-wrapper img {
   pointer-events: none;
   position: absolute;
-  left: 24px;
-  width: 24px;
-  height: 24px;
+  top: 42px;
+  left: 20px;
   background: url("../img/calendar.png") no-repeat;
+}
+
+.ui-datepicker {
+  z-index: 999 !important;
 }
 
 /*=========================================================
@@ -775,8 +762,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .delivery .delivery-phone-img {
   position: absolute;
-  left: 16px;
-  top: 36px;
+  left: 30px;
+  top: 60px;
 }
 
 /*=========================================================
@@ -887,104 +874,192 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 ===========================================================*/
 
 /*----------------------------*\
-	Arrows
-\*----------------------------*/
-
-.slick-prev,
-.slick-next {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #d2dee7;
-  background-color: #fff;
-  border-radius: 50%;
-  z-index: 22;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
-
-.slick-prev:hover,
-.slick-prev:focus,
-.slick-next:hover,
-.slick-next:focus {
-  background-color: #d10024;
-  border-color: #d10024;
-}
-
-.slick-prev:before,
-.slick-next:before {
-  font-family: FontAwesome;
-  color: #4a4a52;
-}
-
-.slick-prev:before {
-  content: "\f104";
-}
-
-.slick-next:before {
-  content: "\f105";
-}
-
-.slick-prev:hover:before,
-.slick-prev:focus:before,
-.slick-next:hover:before,
-.slick-next:focus:before {
-  color: #fff;
-}
-
-.slick-prev {
-  left: -20px;
-}
-
-.slick-next {
-  right: -20px;
-}
-
-/*----------------------------*\
 	Dots
 \*----------------------------*/
+
+.slick-dots {
+  margin-bottom: 24px;
+}
 
 .slick-dots li,
 .slick-dots li button,
 .slick-dots li button:before {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
 }
 
 .slick-dots li button:before {
   content: "";
   opacity: 1;
-  background: #d2dee7;
+  background: #FFFFFF;
+  border: 1px solid #15D16C;
   border-radius: 50%;
 }
 
 .slick-dots li.slick-active button:before {
-  background-color: #d10024;
-}
-
-.custom-dots .slick-dots {
-  position: static;
-  margin: 15px 0px;
+  background-color:#15D16C;
 }
 
 /*=========================================================
 	11 -> RESPONSIVE
 ===========================================================*/
+@media only screen and (min-width: 991px) {
+  .mobile {
+    display: none;
+    visibility: hidden;
+  }
+}
+
 
 @media only screen and (max-width: 991px) {
+  .desktop {
+    display: none;
+  }
+
   .header-logo {
     float: none;
-    text-align: center;
   }
-  .header-logo .logo {
-    display: inline-block;
+
+  h4 {
+    font-size: 14px !important;
+    font-weight: 400x !important;
+  }
+
+  h5 {
+    font-size: 10px !important;
+  }
+
+  .section {
+    padding: 0px;
+  }
+
+  .summary {
+    margin:  16px 0px;
+  }
+
+  .summary-btn {
+    padding: 16px;
+  }
+
+  .primary-btn {
+    padding: 16px 68px;
+    margin: 32px auto;
+  }
+
+  .secondary-btn {
+    padding: 16px;
+  }
+
+  /*----------------------------*\
+    Navigation
+  \*----------------------------*/
+
+  #navigation .main-nav {
+    margin: 0;
+    display: none;
+  }
+
+  #responsive-nav {
+    display: block;
+  }
+
+  #responsive-nav .main-nav {
+    display: flex;
+    margin: 0;
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
+
+  #responsive-nav .main-nav li {
+    margin-left: 8px;
+    font-size: 10px;
+  }
+
+  #responsive-nav .main-nav > li span {
+    width: 100px !important;
+  }
+
+  .rental-date {
+    font-size: 12px !important;
+  }
+
+  /*----------------------------*\
+    Product
+  \*----------------------------*/
+
+  .card {
+    padding: 16px;
+    margin: 0;
+  }
+
+  .product .product-body .product-see-detail {
+    margin-bottom: 24px;
+  }
+
+  .product {
+    margin: 8px 0px 16px;
+    margin-bottom: 24px;
+  }
+
+  .product .product-img {
+    width: 80%;
+    text-align: left;
+  }
+
+  .product.no-card {
+    margin-bottom: 0px;
+  }
+
+  .no-card {
+    padding: 16px;
+    padding-right: 8;
+  }
+
+  .modal-product-content {
+    margin-top: 24px;
+  }
+
+  .rental {
+    display: flex;
+  }
+
+  .rental-calendar {
+    width: 100% !important;
+    padding: 16px !important;
+  }
+
+  .summary-handle {
+    margin-bottom: 16px;
+  }
+
+  .summary-duration {
+    margin-bottom: 16px !important;
+  }
+
+
+  /*----------------------------*\
+    Delivery
+  \*----------------------------*/
+  .delivery, .payment {
+    padding: 0;
+  }
+
+  .delivery .delivery-caption {
+    margin-bottom: 16px;
+  }
+
+  .delivery .delivery-caption.seperate {
+    margin-top: 24px;
+  }
+
+  .delivery .delivery-label, .payment .payment-label {
+    margin-top: 16px;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  [class*="col-xs"] {
-    width: 100%;
-  }
   .success-card {
-    width: 90%;
+    width: 100%;
+    padding: 16px;
   }
 }

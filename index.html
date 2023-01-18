@@ -24,6 +24,9 @@
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 
+	<!-- Jquery UI -->
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 
@@ -66,18 +69,13 @@
 	<nav id="navigation">
 		<!-- container -->
 		<div class="container">
-			<!-- responsive-nav -->
-			<div id="responsive-nav">
-				<!-- NAV -->
-				<ul class="main-nav nav navbar-nav">
-					<li><span id="hot-tub-nav" class="active"></span>Hot Tub & Add Ons</li>
-					<li><span id="rental-duration-nav"></span>Rental Duration</li>
-					<li><span id="delivery-address-nav"></span>Delivery Adress</li>
-					<li><span id="payment-nav"></span>Payment</li>
-				</ul>
-				<!-- /NAV -->
-			</div>
-			<!-- /responsive-nav -->
+			<!-- NAV -->
+			<ul class="main-nav nav navbar-nav">
+				<li><span id="hot-tub-nav" class="active"></span>Hot Tub & Add Ons</li>
+				<li><span id="delivery-address-nav"></span>Delivery Adress</li>
+				<li><span id="payment-nav"></span>Payment</li>
+			</ul>
+			<!-- /NAV -->
 		</div>
 		<!-- /container -->
 	</nav>
@@ -90,82 +88,162 @@
 			<!-- row -->
 			<div class="row">
 
-				<div class="col-md-8 col-xs-12">
-					<!-- STEP - Hot Tub & Add Ons -->
-					<div id="bathub-card" class="card">
-						<h4 class="card-title">Hottub Option</h4>
-						<!-- row -->
-						<div class="row">
-							<div class="col-md-6 col-xs-12">
-								<div class="product product-main" data-title="Softub Spas Resort 300" data-price="100">
-									<div class="product-img">
-										<img src="./img/product01.png" alt="" width="240px">
-									</div>
-									<div class="product-body">
-										<h4 class="product-name">Softub Spas Resort 300</h4>
-										<h4 class="product-price">$100/Week</h4>
-										<a href="#product-modal" data-toggle="modal" data-title="Softub Spas Resort 300"
-											data-image="./img/product01.png"
-											data-content='["Seats 4-6 people", "Heats up to 106°", "7 customizable pulsating jets", "78 in diameter", "300 gallons of water"]'
-											class="product-see-detail">See
-											Detail</a>
+				<div class="desktop">
+					<div class="col-md-8 col-xs-12">
+						<!-- STEP - Hot Tub & Add Ons -->
+						<div id="bathub-card" class="card">
+							<h4 class="card-title">Hottub Option</h4>
+							<!-- row -->
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<div class="product product-main">
+										<div class="product-img">
+											<img src="./img/product01.png" alt="" width="200px">
+										</div>
+										<div class="product-body">
+											<h4 class="product-name">Softub Spas Resort 300</h4>
+											<a href="#product-modal" data-toggle="modal" data-title="Softub Spas Resort 300"
+												data-image="./img/product01.png"
+												data-content='["Seats 4-6 people", "Heats up to 106°", "7 customizable pulsating jets", "78 in diameter", "300 gallons of water"]'
+												class="product-see-detail">See
+												Detail</a>
+											<!-- rental -->
+											<div class="row rental">
+												<div class="col-md-4">
+													<div id="rental1"
+														data-rental='{"title": "Softub Spas Resort 300", "duration": "1 Week", "price": 100, "week": 1}'>
+														<div class="rental-radio-group">
+															<span class="rental-radio-button"></span>
+															<label class="rental-date">1 Week</label>
+														</div>
+														<h3 class="rental-price">$100</h3>
+													</div>
+												</div>
+												<div class="col-md-4 rental-border">
+													<div id="rental2"
+														data-rental='{"title": "Softub Spas Resort 300", "duration": "2 Week", "price": 195, "week": 2}'>
+														<div class="rental-radio-group">
+															<span class="rental-radio-button"></span>
+															<label class="rental-date">2 Week</label>
+														</div>
+														<h3 class="rental-price">$195</h3>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div id="rental3"
+														data-rental='{"title": "Softub Spas Resort 300", "duration": "1 Month", "price": 397, "week": 4}'>
+														<div class="rental-radio-group">
+															<span class="rental-radio-button"></span>
+															<label class="rental-date">1 Month</label>
+														</div>
+														<h3 class="rental-price">$397</h3>
+													</div>
+												</div>
+											</div>
+											<!-- /rental -->
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-md-6 col-xs-12">
-								<div class="product product-main" data-title="Softub Spas Portico" data-price="100">
-									<div class="product-img">
-										<img src="./img/product02.png" alt="" width="240px">
-									</div>
-									<div class="product-body">
-										<h4 class="product-name">Softub Spas Portico</h3>
-											<h4 class="product-price">$100/Week</h4>
-											<a href="#product-modal" data-toggle="modal" data-title="Softub Spas Portico"
-												data-image="./img/product02.png" data-content='["Seats 4-6 people", 
+								<div class="col-md-6 col-xs-12">
+									<div class="product product-main" data-title="Softub Spas Portico" data-price="100">
+										<div class="product-img">
+											<img src="./img/product02.png" alt="" width="200px">
+										</div>
+										<div class="product-body">
+											<h4 class="product-name">Softub Spas Portico</h3>
+												<a href="#product-modal" data-toggle="modal" data-title="Softub Spas Portico"
+													data-image="./img/product02.png" data-content='["Seats 4-6 people", 
 												"Heats up to 106°",
 												"8 customizable pulsating jets",
 												"79 in diameter",
 												"Poseidon Jet with Trident Diverter"]' class="product-see-detail">See
-												Detail</a>
+													Detail</a>
+												<!-- rental -->
+												<div class="row rental">
+													<div class="col-md-4">
+														<div id="rental1"
+															data-rental='{"title": "Softub Spas Portico", "duration": "1 Week", "price": 100, "week": 1}'>
+															<div class="rental-radio-group">
+																<span class="rental-radio-button"></span>
+																<label class="rental-date">1 Week</label>
+															</div>
+															<h3 class="rental-price">$100</h3>
+														</div>
+													</div>
+													<div class="col-md-4 rental-border">
+														<div id="rental2"
+															data-rental='{"title": "Softub Spas Portico", "duration": "2 Week", "price": 195, "week": 2}'>
+															<div class="rental-radio-group">
+																<span class="rental-radio-button"></span>
+																<label class="rental-date">2 Week</label>
+															</div>
+															<h3 class="rental-price">$195</h3>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div id="rental3"
+															data-rental='{"title": "Softub Spas Portico", "duration": "1 Month", "price": 397, "week": 4}'>
+															<div class="rental-radio-group">
+																<span class="rental-radio-button"></span>
+																<label class="rental-date">1 Month</label>
+															</div>
+															<h3 class="rental-price">$397</h3>
+														</div>
+													</div>
+												</div>
+												<!-- /rental -->
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<!-- row -->
+							<!-- row -->
 
-						<h4 class="card-title">Select Add Ons</h4>
-						<!-- row -->
-						<div class="row">
-							<!-- Products tab & slick -->
-							<div class="col-md-12">
-								<div class="row">
-									<div class="products-tabs">
-										<!-- tab -->
-										<div id="tab1" class="tab-pane active">
-											<div class="products-slick" data-nav="#slick-nav-1">
-												<!-- product -->
-												<div class="product no-card">
-													<div class="product-img">
-														<img src="./img/addons01.png" alt="">
-													</div>
-													<div class="input-checkbox">
-														<input type="checkbox" id="addons-spa"
-															data-input='{"id": "Spa", "title": "Spa Umbrella", "caption": "$100", "price": 100}'>
-														<label for="addons-spa">
-															<span></span>
-															Spa Umbrella
-														</label>
-													</div>
-													<h5 class="product-price">$100</h5>
-												</div>
-												<!-- /product -->
+							<h4 class="card-title">Rental Date</h4>
+							<div class="rental">
+								<div class="rental-calendar-wrapper">
+									<label class="rental-label">Start Date</label>
+									<img src="./img/calendar.png" alt="" />
+									<input class="rental-calendar" id="startDate" type="text" name="start-date" />
+								</div>
+								<div class="rental-calendar-wrapper">
+									<label class="rental-label">End Date</label>
+									<img src="./img/calendar.png" alt="" />
+									<input class="rental-calendar" id="endDate" type="text" name="end-date" />
+								</div>
+							</div>
 
-												<!-- product -->
-												<div class="product no-card">
-													<div class="product-img">
-														<img src="./img/addons02.png" alt="">
+							<h4 class="card-title">Select Add Ons</h4>
+							<!-- row -->
+							<div class="row">
+								<!-- Products tab & slick -->
+								<div class="col-md-12">
+									<div class="row">
+										<div class="products-tabs">
+											<!-- tab -->
+											<div class="tab-pane active">
+												<div class="products-slick">
+													<!-- product -->
+													<div class="product no-card">
+														<div class="product-img">
+															<img src="./img/addons01.png" alt="" width="100%">
+														</div>
+														<div class="input-checkbox">
+															<input type="checkbox" id="addons-spa"
+																data-input='{"id": "Spa", "title": "Spa Umbrella", "caption": "$100/Week", "price": 100}'>
+															<label for="addons-spa">
+																<span></span>
+																Spa Umbrella
+															</label>
+														</div>
+														<h5 class="product-price">$100/Week</h5>
 													</div>
-													<div class="product-body">
+													<!-- /product -->
+
+													<!-- product -->
+													<div class="product no-card">
+														<div class="product-img">
+															<img src="./img/addons02.png" alt="" width="100%">
+														</div>
 														<div class="input-checkbox">
 															<input type="checkbox" id="addons-buca"
 																data-input='{"id": "Buca", "title": "Buca Rattan Surround", "caption": "$100/Week", "price": 100}'>
@@ -176,193 +254,149 @@
 														</div>
 														<h5 class="product-price">$100/Week</h5>
 													</div>
-												</div>
-												<!-- /product -->
+													<!-- /product -->
 
-												<!-- product -->
-												<div class="product no-card">
-													<div class="product-img">
-														<img src="./img/addons03.png" alt="">
-													</div>
-													<div class="product-body">
+													<!-- product -->
+													<div class="product no-card">
+														<div class="product-img">
+															<img src="./img/addons03.png" alt="" width="100%">
+														</div>
 														<div class="input-checkbox">
 															<input type="checkbox" id="addons-cedar"
-																data-input='{"id": "Cedar", "title": "Cedar Surround", "caption": "$100/Week", "price": 100}'>
+																data-input='{"id": "Cedar", "title": "Cedar Surround", "caption": "$50/Week", "price": 50}'>
 															<label for="addons-cedar">
 																<span></span>
 																Cedar Surround
 															</label>
 														</div>
-														<h5 class="product-price">$100/Week</h5>
+														<h5 class="product-price">$50/Week</h5>
 													</div>
+													<!-- /product -->
 												</div>
-												<!-- /product -->
+												<div class="products-slick-nav"></div>
 											</div>
-											<div id="slick-nav-1" class="products-slick-nav"></div>
-										</div>
-										<!-- /tab -->
-									</div>
-								</div>
-							</div>
-							<!-- Products tab & slick -->
-						</div>
-						<!-- /row -->
-					</div>
-					<!-- /STEP - Hot Tub & Add Ons -->
-
-					<!-- STEP - Rental Durations -->
-					<div id="rental-durations" class="card" style="display: none">
-						<h4 class="card-title">Select Your Rental Duration and Date</h4>
-						<div class="rental">
-							<p class="rental-caption">Rental Duration</p>
-							<!-- row -->
-							<div class="row rental-list">
-								<!-- rental -->
-								<div class="col-md-4 col-xs-12">
-									<div id="rental1" class="rental-card active">
-										<div class="rental-radio-group">
-											<span class="rental-radio-button"></span>
-											<label class="rental-date">1 Week</label>
-											<h3 class="rental-price">$100</h3>
+											<!-- /tab -->
 										</div>
 									</div>
 								</div>
-								<div class="col-md-4 col-xs-12">
-									<div id="rental2" class="rental-card">
-										<div class="rental-radio-group">
-											<span class="rental-radio-button"></span>
-											<label class="rental-date">2 Week</label>
-											<h3 class="rental-price">$195</h3>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 col-xs-12">
-									<div id="rental3" class="rental-card">
-										<div class="rental-radio-group">
-											<span class="rental-radio-button"></span>
-											<label class="rental-date">1 Month</label>
-											<h3 class="rental-price">$397</h3>
-										</div>
-									</div>
-								</div>
-								<!-- /rental -->
+								<!-- Products tab & slick -->
 							</div>
 							<!-- /row -->
-							<p class="rental-caption">Rental Date</p>
-							<div class="rental-calendar-wrapper">
-								<label class="rental-label">Start Date</label>
-								<input class="rental-calendar" id="startDate" type="date" name="bday" />
-							</div>
-							<div class="rental-calendar-wrapper">
-								<label class="rental-label">End Date</label>
-								<input class="rental-calendar" id="endDate" type="date" name="bday" />
-							</div>
 						</div>
+						<!-- /STEP - Hot Tub & Add Ons -->
+
+						<!-- STEP - Delivery Address -->
+						<div id="delivery-address" class="card" style="display: none">
+							<form class="delivery">
+								<p class="delivery-caption">Deliver To:</p>
+								<label for="delivery-name" class="delivery-label">Name*</label>
+								<input id="delivery-name" type="text" name="name" class="delivery-input" placeholder="eg: John Doe" />
+
+								<label for="delivery-email" class="delivery-label">E-mail*</label>
+								<input id="delivery-email" type="text" name="name" class="delivery-input"
+									placeholder="eg: Johndoe@gmail.com" />
+
+								<p class="delivery-caption seperate">Address</p>
+								<label for="delivery-address-line-1" class="delivery-label">Adress Line 1*</label>
+								<input id="delivery-address-line-1" type="text" name="name" class="delivery-input"
+									placeholder="eg: 2c Harwood Road, Northminster Business ParkYork YO26 6QU" />
+
+								<label for="delivery-address-line-2" class="delivery-label">Adress Line 2*</label>
+								<input id="delivery-address-line-2" type="text" name="name" class="delivery-input"
+									placeholder="not mandatory" />
+
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<label for="delivery-city" class="delivery-label">City*</label>
+										<input id="delivery-city" type="text" name="name" class="delivery-input"
+											placeholder="not mandatory" />
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<label for="delivery-zip-code" class="delivery-label">Zip Code*</label>
+										<input id="delivery-zip-code" type="text" name="name" class="delivery-input"
+											placeholder="eg: 46077" />
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<label for="delivery-state" class="delivery-label">State/Proveince/Region*</label>
+										<input id="delivery-state" type="text" name="name" class="delivery-input"
+											placeholder="eg: Indiana" />
+									</div>
+									<div class="col-md-6 col-xs-12 delivery-phone">
+										<label for="delivery-phone-number" class="delivery-label">Phone Number*</label>
+										<input id="delivery-phone-number" type="text" name="name" class="delivery-input" placeholder="+1" />
+										<img src="./img/phone.png" alt="" class="delivery-phone-img" />
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- /STEP - Delivery Address -->
+
+						<!-- STEP - Payment -->
+						<div id="payment" class="card" style="display: none">
+							<form class="payment">
+								<p class="payment-caption">Payment Method</p>
+
+								<div class="payment-radio-group">
+									<div class="payment-radio-item">
+										<input type="radio" name="method" value="visa" id="visa-radio">
+										<label for="visa-radio"><img src="./img/payment01.png" width="100px" height="32px"></label>
+									</div>
+
+									<div class="payment-radio-item">
+										<input type="radio" name="method" value="mastercard" id="mastercard-radio">
+										<label for="mastercard-radio"><img src="./img/payment02.png" width="56px" height="32px"></label>
+									</div>
+								</div>
+
+								<label for="payment-number" class="payment-label">Card Number</label>
+								<input id="payment-number" type="text" name="name" class="payment-input"
+									placeholder="Insert Your Card Number" />
+
+								<label for="payment-holder" class="payment-label">Card Holder</label>
+								<input id="payment-holder" type="text" name="name" class="payment-input" placeholder="eg: John Doer" />
+
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<label for="payment-exp" class="payment-label">Exp. Date</label>
+										<input id="payment-exp" type="text" name="name" class="payment-input" placeholder="00.00" />
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<label for="payment-cvv" class="payment-label">CVV</label>
+										<input id="payment-cvv" type="text" name="name" class="payment-input" placeholder="Insert CVV" />
+									</div>
+
+								</div>
+							</form>
+						</div>
+						<!-- /STEP - Payment -->
 					</div>
-					<!-- /STEP - Rental Durations -->
-
-					<!-- STEP - Delivery Address -->
-					<div id="delivery-address" class="card" style="display: none">
-						<form class="delivery">
-							<p class="delivery-caption">Deliver To:</p>
-							<label for="delivery-name" class="delivery-label">Name*</label>
-							<input id="delivery-name" type="text" name="name" class="delivery-input" placeholder="eg: John Doe" />
-
-							<label for="delivery-email" class="delivery-label">E-mail*</label>
-							<input id="delivery-email" type="text" name="name" class="delivery-input"
-								placeholder="eg: Johndoe@gmail.com" />
-
-							<p class="delivery-caption seperate">Address</p>
-							<label for="delivery-address-line-1" class="delivery-label">Adress Line 1*</label>
-							<input id="delivery-address-line-1" type="text" name="name" class="delivery-input"
-								placeholder="eg: 2c Harwood Road, Northminster Business ParkYork YO26 6QU" />
-
-							<label for="delivery-address-line-2" class="delivery-label">Adress Line 2*</label>
-							<input id="delivery-address-line-2" type="text" name="name" class="delivery-input"
-								placeholder="not mandatory" />
-
-							<div class="row">
-								<div class="col-md-6 col-xs-12">
-									<label for="delivery-city" class="delivery-label">City*</label>
-									<input id="delivery-city" type="text" name="name" class="delivery-input"
-										placeholder="not mandatory" />
-								</div>
-								<div class="col-md-6 col-xs-12">
-									<label for="delivery-zip-code" class="delivery-label">Zip Code*</label>
-									<input id="delivery-zip-code" type="text" name="name" class="delivery-input"
-										placeholder="eg: 46077" />
-								</div>
-							</div>
-
-							<label for="delivery-state" class="delivery-label">State/Proveince/Region*</label>
-							<input id="delivery-state" type="text" name="name" class="delivery-input" placeholder="eg: Indiana" />
-
-							<div class="delivery-phone">
-								<label for="delivery-phone-number" class="delivery-label">Phone Number*</label>
-								<input id="delivery-phone-number" type="text" name="name" class="delivery-input" placeholder="+1" />
-								<img src="./img/phone.png" alt="" class="delivery-phone-img" />
-							</div>
-						</form>
-					</div>
-					<!-- /STEP - Delivery Address -->
-
-					<!-- STEP - Payment -->
-					<div id="payment" class="card" style="display: none">
-						<form class="payment">
-							<p class="payment-caption">Payment Method</p>
-
-							<div class="payment-radio-group">
-								<div class="payment-radio-item">
-									<input type="radio" name="method" value="visa" id="visa-radio">
-									<label for="visa-radio"><img src="./img/payment01.png" width="100px" height="32px"></label>
-								</div>
-
-								<div class="payment-radio-item">
-									<input type="radio" name="method" value="mastercard" id="mastercard-radio">
-									<label for="mastercard-radio"><img src="./img/payment02.png" width="56px" height="32px"></label>
-								</div>
-							</div>
-
-							<label for="payment-number" class="payment-label">Card Number</label>
-							<input id="payment-number" type="text" name="name" class="payment-input"
-								placeholder="Insert Your Card Number" />
-
-							<label for="payment-holder" class="payment-label">Card Holder</label>
-							<input id="payment-holder" type="text" name="name" class="payment-input" placeholder="eg: John Doer" />
-
-							<div class="row">
-								<div class="col-md-6 col-xs-12">
-									<label for="payment-exp" class="payment-label">Exp. Date</label>
-									<input id="payment-exp" type="text" name="name" class="payment-input" placeholder="00.00" />
-								</div>
-								<div class="col-md-6 col-xs-12">
-									<label for="payment-cvv" class="payment-label">CVV</label>
-									<input id="payment-cvv" type="text" name="name" class="payment-input" placeholder="Insert CVV" />
-								</div>
-
-							</div>
-						</form>
-					</div>
-					<!-- /STEP - Payment -->
 				</div>
 
 				<!-- summary -->
 				<div class="col-md-4 col-xs-12">
-					<div class="card" style="min-height: 450px; max-height: 500px;">
+					<div class="card">
 						<h4 class="card-title">Total Amount</h4>
 						<div id="summary-main" class="summary">
 							<h5 class="summary-title">Hottub</h5>
 							<!-- row -->
 							<div class="row">
-								<div class="col-md-8">
-									<h4 class="summary-product"></h4>
+								<div class="col-xs-8">
+									<h4 class="summary-product">-</h4>
 								</div>
-								<div class="col-md-4">
-									<h4 class="summary-price"></h4>
+								<div class="col-xs-4">
+									<h4 class="summary-price">$ -</h4>
 								</div>
 							</div>
 							<!-- /row -->
-							<p class="summary-caption"></p>
+							<p class="summary-caption duration">Rental Duration:</p>
+
+							<div class="summary-duration">
+								<h5 class="summary-duration-title">Rental Date</h5>
+								<p class="summary-duration-date"><span id="start-date"></span> - <span id="end-date"></span></p>
+							</div>
 						</div>
 						<div class="summary">
 							<h5 class="summary-title">Add Ons</h5>
@@ -371,24 +405,330 @@
 						</div>
 						<!-- row -->
 						<div class="row">
-							<div class="col-md-8">
+							<div class="col-xs-8">
 								<h4 class="summary-footer">Total</h4>
 							</div>
-							<div class="col-md-4">
+							<div class="col-xs-4">
 								<h4 class="summary-footer text-right"></h4>
 							</div>
 						</div>
 						<!-- /row -->
 					</div>
 
-					<div class="summary-handle">
-						<button id="back-btn" class="primary-btn secondary-btn">BACK</button>
-						<button id="continue-btn" class="primary-btn summary-btn">CONTINUE</button>
+					<div class="desktop">
+						<div class="summary-handle">
+							<button id="back-btn" class="primary-btn secondary-btn">BACK</button>
+							<button id="continue-btn" class="primary-btn summary-btn">CONTINUE</button>
+						</div>
 					</div>
-
 				</div>
+				<!-- /summary -->
+
+				<!-- nav responsive-->
+				<div id="responsive-nav" class="col-xs-12">
+					<ul class="main-nav nav navbar-nav">
+						<li><span id="hot-tub-nav-resp" class="active"></span>Hot Tub & Add Ons</li>
+						<li><span id="delivery-address-nav-resp"></span>Delivery Adress</li>
+						<li><span id="payment-nav-resp"></span>Payment</li>
+					</ul>
+				</div>
+				<!-- /nav responsive-->
+
+				<div class="mobile">
+					<div class="col-md-8 col-xs-12">
+						<!-- STEP - Hot Tub & Add Ons -->
+						<div id="bathub-card-resp" class="card">
+							<h4 class="card-title">Hottub Option</h4>
+							<!-- row -->
+							<div class="row products-slick" data-nav="#slick-nav-1">
+								<div class="col-xs-12">
+									<div class="product product-main">
+										<div class="product-img">
+											<img src="./img/product01.png" alt="" width="200px">
+										</div>
+										<div class="product-body">
+											<h4 class="product-name">Softub Spas Resort 300</h4>
+											<a href="#product-modal" data-toggle="modal" data-title="Softub Spas Resort 300"
+												data-image="./img/product01.png"
+												data-content='["Seats 4-6 people", "Heats up to 106°", "7 customizable pulsating jets", "78 in diameter", "300 gallons of water"]'
+												class="product-see-detail">See
+												Detail</a>
+											<!-- rental -->
+											<div class="row rental">
+												<div class="col-md-4 col-xs-4">
+													<div id="rental1"
+														data-rental='{"title": "Softub Spas Resort 300", "duration": "1 Week", "price": 100, "week": 1}'>
+														<div class="rental-radio-group">
+															<span class="rental-radio-button"></span>
+															<label class="rental-date">1 Week</label>
+														</div>
+														<h3 class="rental-price">$100</h3>
+													</div>
+												</div>
+												<div class="col-md-4 col-xs-4 rental-border">
+													<div id="rental2"
+														data-rental='{"title": "Softub Spas Resort 300", "duration": "2 Week", "price": 195, "week": 2}'>
+														<div class="rental-radio-group">
+															<span class="rental-radio-button"></span>
+															<label class="rental-date">2 Week</label>
+														</div>
+														<h3 class="rental-price">$195</h3>
+													</div>
+												</div>
+												<div class="col-md-4 col-xs-4">
+													<div id="rental3"
+														data-rental='{"title": "Softub Spas Resort 300", "duration": "1 Month", "price": 397, "week": 4}'>
+														<div class="rental-radio-group">
+															<span class="rental-radio-button"></span>
+															<label class="rental-date">1 Month</label>
+														</div>
+														<h3 class="rental-price">$397</h3>
+													</div>
+												</div>
+											</div>
+											<!-- /rental -->
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<div class="product product-main" data-title="Softub Spas Portico" data-price="100">
+										<div class="product-img">
+											<img src="./img/product02.png" alt="" width="200px">
+										</div>
+										<div class="product-body">
+											<h4 class="product-name">Softub Spas Portico</h3>
+												<a href="#product-modal" data-toggle="modal" data-title="Softub Spas Portico"
+													data-image="./img/product02.png" data-content='["Seats 4-6 people", 
+												"Heats up to 106°",
+												"8 customizable pulsating jets",
+												"79 in diameter",
+												"Poseidon Jet with Trident Diverter"]' class="product-see-detail">See
+													Detail</a>
+												<!-- rental -->
+												<div class="row rental">
+													<div class="col-md-4 col-xs-4">
+														<div id="rental1"
+															data-rental='{"title": "Softub Spas Portico", "duration": "1 Week", "price": 100, "week": 1}'>
+															<div class="rental-radio-group">
+																<span class="rental-radio-button"></span>
+																<label class="rental-date">1 Week</label>
+															</div>
+															<h3 class="rental-price">$100</h3>
+														</div>
+													</div>
+													<div class="col-md-4 col-xs-4 rental-border">
+														<div id="rental2"
+															data-rental='{"title": "Softub Spas Portico", "duration": "2 Week", "price": 195, "week": 2}'>
+															<div class="rental-radio-group">
+																<span class="rental-radio-button"></span>
+																<label class="rental-date">2 Week</label>
+															</div>
+															<h3 class="rental-price">$195</h3>
+														</div>
+													</div>
+													<div class="col-md-4 col-xs-4">
+														<div id="rental3"
+															data-rental='{"title": "Softub Spas Portico", "duration": "1 Month", "price": 397, "week": 4}'>
+															<div class="rental-radio-group">
+																<span class="rental-radio-button"></span>
+																<label class="rental-date">1 Month</label>
+															</div>
+															<h3 class="rental-price">$397</h3>
+														</div>
+													</div>
+												</div>
+												<!-- /rental -->
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- row -->
+							<div id="slick-nav-1" class="products-slick-nav"></div>
+
+							<h4 class="card-title">Rental Date</h4>
+							<div class="rental" style="gap: 8px">
+								<div class="rental-calendar-wrapper">
+									<label class="rental-label">Start Date</label>
+									<input class="rental-calendar" id="startDate-resp" type="text" name="start-date" />
+								</div>
+								<div class="rental-calendar-wrapper">
+									<label class="rental-label">End Date</label>
+									<input class="rental-calendar" id="endDate-resp" type="text" name="end-date" />
+								</div>
+							</div>
+
+							<h4 class="card-title">Select Add Ons</h4>
+							<!-- row -->
+							<div class="row">
+								<!-- Products tab & slick -->
+								<div class="col-md-12">
+									<div class="row">
+										<div class="products-tabs">
+											<!-- tab -->
+											<div class="tab-pane active container">
+												<div class="row">
+													<!-- product -->
+													<div class="product no-card col-xs-6 col-sm-3">
+														<div class="product-img">
+															<img src="./img/addons01.png" alt="" width="100%">
+														</div>
+														<div class="input-checkbox">
+															<input type="checkbox" id="addons-spa-resp"
+																data-input='{"id": "Spa", "title": "Spa Umbrella", "caption": "$100/Week", "price": 100}'>
+															<label for="addons-spa-resp">
+																<span></span>
+																Spa Umbrella
+															</label>
+														</div>
+														<div class="product-price">$100/Week</div>
+													</div>
+													<!-- /product -->
+
+													<!-- product -->
+													<div class="product no-card col-xs-6 col-sm-3">
+														<div class="product-img">
+															<img src="./img/addons02.png" alt="" width="100%">
+														</div>
+														<div class="input-checkbox">
+															<input type="checkbox" id="addons-buca-resp"
+																data-input='{"id": "Buca", "title": "Buca Rattan Surround", "caption": "$100/Week", "price": 100}'>
+															<label for="addons-buca-resp">
+																<span></span>
+																Buca Rattan Surround
+															</label>
+														</div>
+														<div class="product-price">$100/Week</div>
+													</div>
+													<!-- /product -->
+
+													<!-- product -->
+													<div class="product no-card col-xs-6 col-sm-3">
+														<div class="product-img">
+															<img src="./img/addons03.png" alt="" width="100%">
+														</div>
+														<div class="input-checkbox">
+															<input type="checkbox" id="addons-cedar-resp"
+																data-input='{"id": "Cedar", "title": "Cedar Surround", "caption": "$50/Week", "price": 50}'>
+															<label for="addons-cedar-resp">
+																<span></span>
+																Cedar Surround
+															</label>
+														</div>
+														<div class="product-price">$50/Week</div>
+													</div>
+													<!-- /product -->
+												</div>
+												<div class="products-slick-nav"></div>
+											</div>
+											<!-- /tab -->
+										</div>
+									</div>
+								</div>
+								<!-- Products tab & slick -->
+							</div>
+							<!-- /row -->
+						</div>
+						<!-- /STEP - Hot Tub & Add Ons -->
+
+						<!-- STEP - Delivery Address -->
+						<div id="delivery-address-resp" class="card" style="display: none">
+							<form class="delivery">
+								<p class="delivery-caption">Deliver To:</p>
+								<label for="delivery-name" class="delivery-label">Name*</label>
+								<input id="delivery-name" type="text" name="name" class="delivery-input" placeholder="eg: John Doe" />
+
+								<label for="delivery-email" class="delivery-label">E-mail*</label>
+								<input id="delivery-email" type="text" name="name" class="delivery-input"
+									placeholder="eg: Johndoe@gmail.com" />
+
+								<p class="delivery-caption seperate">Address</p>
+								<label for="delivery-address-line-1" class="delivery-label">Adress Line 1*</label>
+								<input id="delivery-address-line-1" type="text" name="name" class="delivery-input"
+									placeholder="eg: 2c Harwood Road, Northminster Business ParkYork YO26 6QU" />
+
+								<label for="delivery-address-line-2" class="delivery-label">Adress Line 2*</label>
+								<input id="delivery-address-line-2" type="text" name="name" class="delivery-input"
+									placeholder="not mandatory" />
+
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<label for="delivery-city" class="delivery-label">City*</label>
+										<input id="delivery-city" type="text" name="name" class="delivery-input"
+											placeholder="not mandatory" />
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<label for="delivery-zip-code" class="delivery-label">Zip Code*</label>
+										<input id="delivery-zip-code" type="text" name="name" class="delivery-input"
+											placeholder="eg: 46077" />
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<label for="delivery-state" class="delivery-label">State/Proveince/Region*</label>
+										<input id="delivery-state" type="text" name="name" class="delivery-input"
+											placeholder="eg: Indiana" />
+									</div>
+									<div class="col-md-6 col-xs-12 delivery-phone">
+										<label for="delivery-phone-number" class="delivery-label">Phone Number*</label>
+										<input id="delivery-phone-number" type="text" name="name" class="delivery-input" placeholder="+1" />
+										<img src="./img/phone.png" alt="" class="delivery-phone-img" />
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- /STEP - Delivery Address -->
+
+						<!-- STEP - Payment -->
+						<div id="payment-resp" class="card" style="display: none">
+							<form class="payment">
+								<p class="payment-caption">Payment Method</p>
+
+								<div class="payment-radio-group">
+									<div class="payment-radio-item">
+										<input type="radio" name="method" value="visa" id="visa-radio">
+										<label for="visa-radio"><img src="./img/payment01.png" width="100px" height="32px"></label>
+									</div>
+
+									<div class="payment-radio-item">
+										<input type="radio" name="method" value="mastercard" id="mastercard-radio">
+										<label for="mastercard-radio"><img src="./img/payment02.png" width="56px" height="32px"></label>
+									</div>
+								</div>
+
+								<label for="payment-number" class="payment-label">Card Number</label>
+								<input id="payment-number" type="text" name="name" class="payment-input"
+									placeholder="Insert Your Card Number" />
+
+								<label for="payment-holder" class="payment-label">Card Holder</label>
+								<input id="payment-holder" type="text" name="name" class="payment-input" placeholder="eg: John Doer" />
+
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<label for="payment-exp" class="payment-label">Exp. Date</label>
+										<input id="payment-exp" type="text" name="name" class="payment-input" placeholder="00.00" />
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<label for="payment-cvv" class="payment-label">CVV</label>
+										<input id="payment-cvv" type="text" name="name" class="payment-input" placeholder="Insert CVV" />
+									</div>
+
+								</div>
+							</form>
+						</div>
+						<!-- /STEP - Payment -->
+					</div>
+				</div>
+
+				<!-- STEP - summary responsive -->
+				<div class="mobile">
+					<div class="summary-handle col-xs-12">
+						<button id="back-btn-resp" class="primary-btn secondary-btn">BACK</button>
+						<button id="continue-btn-resp" class="primary-btn summary-btn">CONTINUE</button>
+					</div>
+				</div>
+				<!-- /STEP - summary responsive -->
 			</div>
-			<!-- /summary -->
 		</div>
 		<!-- /row -->
 	</div>
@@ -402,13 +742,15 @@
 			<div class="modal-content modal-product">
 				<img src="./img/close.png" data-dismiss="modal" class="modal-close">
 				<h4 class="modal-title"></h4>
-				<div class="row modal-body">
-					<div class="col-xs-6">
-						<img id="modal-product-img" src="" alt="" width="100%" height="100%" />
-					</div>
-					<div class="col-xs-6">
-						<ul class="modal-product-content">
-						</ul>
+				<div class="container">
+					<div class="row modal-body">
+						<div class="col-md-6 col-xs-12">
+							<img id="modal-product-img" src="" alt="" width="100%" height="100%" />
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<ul class="modal-product-content">
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -438,12 +780,15 @@
 	<!-- /MODAL - Remove Add Ons -->
 
 	<!-- jQuery Plugins -->
+	<script src="js/moment.js"></script>
 	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/slick.min.js"></script>
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/main.js"></script>
+
 </body>
 
 </html>
